@@ -1,0 +1,4 @@
+<?php
+
+$MESS['PANEL_BUTTONS_HANDLER_DISABLE_SIDE_BAR_ALT'] = 'Вкл/Выкл боковой панели';
+$MESS['PANEL_BUTTONS_HANDLER_DISABLE_SIDE_BAR_TEXT'] = 'Боковая панель';
