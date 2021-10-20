@@ -18,14 +18,14 @@
         <?=$APPLICATION->ShowMeta('author')?>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+        <link href="<?=\CUtil::GetAdditionalFileURL(SITE_TEMPLATE_PATH . '/assets/css/tooplate-style.css');?>" type="text/css" rel="stylesheet" />
 
         <?php
             $templateAsset->addCss(SITE_TEMPLATE_PATH . '/vendor/bootstrap/css/bootstrap.min.css');
             $templateAsset->addCss(SITE_TEMPLATE_PATH . '/assets/css/fontawesome.css');
-            $templateAsset->addCss(SITE_TEMPLATE_PATH . '/assets/css/tooplate-style.css');
             $templateAsset->addCss(SITE_TEMPLATE_PATH . '/assets/css/owl.css');
             $templateAsset->addCss(SITE_TEMPLATE_PATH . '/assets/css/lightbox.css');
-
+ 
             $templateAsset->addJs(SITE_TEMPLATE_PATH . '/vendor/jquery/jquery.min.js', true);
             $templateAsset->addJs(SITE_TEMPLATE_PATH . '/vendor/bootstrap/js/bootstrap.bundle.min.js');
             $templateAsset->addJs(SITE_TEMPLATE_PATH . '/assets/js/isotope.min.js');
