@@ -3,6 +3,7 @@
 namespace App\Components\MainPage;
 
 use Bitrix\Main\Loader;
+use Bitrix\Main\Localization\Loc;
 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
@@ -25,71 +26,34 @@ class PhotoGalery extends \CBitrixComponent
     {
         if (!isset($this->arParams['IBLOCK_ID']))
         {
-            ShowError('IBLOCK_ID not set');
+            ShowError(Loc::getMessage('SITE_PHOTO_GALERY_IBLOCK_ID_NOT_SET_ERR'));
             return false;
         }
 
         if (!Loader::includeModule('iblock'))
         {
-            ShowError('Module iblock isn\'t installed');
+            ShowError(Loc::getMessage('SITE_PHOTO_GALERY_MODULE_IBLOCK_NOT_INSTALLED'));
             return false;
         }
 
         if ($this->startResultCache())
         {
-            $categoriesCollection = \Bitrix\Iblock\SectionTable::getList([
-                'select' => [
-                    'ID',
-                    'IBLOCK_ID',
-                    'NAME',
-                    'CODE',
-                ],
-                'filter' => [
-                    '=IBLOCK_ID' => $this->arParams['IBLOCK_ID'],
-                    '=ACTIVE' => 'Y',
-                    '=IBLOCK_SECTION_ID' => '0',
-                ],
-            ])->fetchCollection();
-
-            $categoriesList = [];
-            foreach ($categoriesCollection as $category)
-            {
-                $categoriesList[$category->getId()] = [
-                    'NAME' => $category->getName(),
-                    'CODE' => $category->getCode(),
-                ];
-            }
-
+            $categoriesList = $this->getCategoriesList();
             $this->arResult['CATEGORIES'] = $categoriesList;
 
-            $photosCollection = \Bitrix\Iblock\ElementTable::getList([
-                'select' => [
-                    'ID',
-                    'IBLOCK_ID',
-                    'NAME',
-                    'IBLOCK_SECTION_ID',
-                    'DETAIL_PICTURE',
-                    'PREVIEW_TEXT',
-                    'DETAIL_TEXT',
-                ],
-                'filter' => [
-                    '=IBLOCK_ID' => $this->arParams['IBLOCK_ID'],
-                    '=ACTIVE' => 'Y',
-                ]
-            ])->fetchCollection();
-
+            $photosRawList = $this->getPhotosList();
             $photosList = [];
-            foreach ($photosCollection as $photo)
+            foreach ($photosRawList as $photo)
             {
-                $photoSrc = \CFile::GetPath($photo->getDetailPicture());
-                $categoryCode = $categoriesList[$photo->getIblockSectionId()]['CODE'] ?? '';
+                $photoSrc = \CFile::GetPath($photo['DETAIL_PICTURE']);
+                $categoryCode = $categoriesList[$photo['IBLOCK_SECTION_ID']]['CODE'] ?? '';
 
                 $photosList[] = [
-                    'NAME' => $photo->getName(),
-                    'DESCRIPTION' => $photo->getPreviewText(),
+                    'NAME' => $photo['ID'],
+                    'DESCRIPTION' => $photo['PREVIEW_TEXT'],
                     'CATEGORY_CODE' => $categoryCode,
                     'SRC' => $photoSrc,
-                    'DETAIL_TEXT' => $photo->getDetailText(),
+                    'DETAIL_TEXT' => $photo['PREVIEW_TEXT'],
                 ];
             }
 
@@ -101,5 +65,54 @@ class PhotoGalery extends \CBitrixComponent
         }
 
         return true;
+    }
+
+    private function getCategoriesList() : array
+    {
+        $categoriesCollection = \Bitrix\Iblock\SectionTable::getList([
+            'select' => [
+                'ID',
+                'IBLOCK_ID',
+                'NAME',
+                'CODE',
+            ],
+            'filter' => [
+                '=IBLOCK_ID' => $this->arParams['IBLOCK_ID'],
+                '=ACTIVE' => 'Y',
+                '=IBLOCK_SECTION_ID' => '0',
+            ],
+        ])->fetchCollection();
+
+        $categoriesList = [];
+        foreach ($categoriesCollection as $category)
+        {
+            $categoriesList[$category->getId()] = [
+                'NAME' => $category->getName(),
+                'CODE' => $category->getCode(),
+            ];
+        }
+
+        return $categoriesList;
+    }
+
+    private function getPhotosList() : array
+    {
+        $photosList = \Bitrix\Iblock\ElementTable::getList([
+            'select' => [
+                'ID',
+                'IBLOCK_ID',
+                'NAME',
+                'IBLOCK_SECTION_ID',
+                'DETAIL_PICTURE',
+                'PREVIEW_TEXT',
+                'DETAIL_TEXT',
+            ],
+            'filter' => [
+                '=IBLOCK_ID' => $this->arParams['IBLOCK_ID'],
+                '=ACTIVE' => 'Y',
+            ]
+        ])->fetchAll();
+
+        return $photosList;
     }
 }
