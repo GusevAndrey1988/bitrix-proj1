@@ -11,7 +11,7 @@ class PanelButtonsHandler
         \Bitrix\Main\Localization\Loc::loadMessages(__FILE__);
     }
 
-    public function addDisableSideBarButton() 
+    public function addSideBarDisableButton() 
     {
         /** @var \CMain $APPLICATION */
         global $APPLICATION;

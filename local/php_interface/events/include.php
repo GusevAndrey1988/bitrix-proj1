@@ -7,5 +7,5 @@ $eventManager = \Bitrix\Main\EventManager::getInstance();
 $eventManager->addEventHandlerCompatible(
     'main',
     'OnPanelCreate',
-    [\App\Events\EventsHandlers\PanelButtonsHandler::class, 'addDisableSideBarButton']
+    [\App\Events\EventsHandlers\PanelButtonsHandler::class, 'addSideBarDisableButton']
 );

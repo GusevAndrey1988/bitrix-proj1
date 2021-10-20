@@ -1,12 +1,12 @@
-.access.php
-.htaccess
-.section.php
-HTML Template
-bitrix
-desktop_app
-for_dev
-login
-pub
-storage.php
-upload
-urlrewrite.php
+/.access.php
+/.htaccess
+/.section.php
+/HTML Template
+/bitrix
+/desktop_app
+/for_dev
+/login
+/pub
+/storage.php
+/upload
+/urlrewrite.php
