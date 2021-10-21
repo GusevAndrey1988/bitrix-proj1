@@ -13,6 +13,11 @@ class PanelButtonsHandler
 
     public function addSideBarDisableButton() 
     {
+        if (SITE_TEMPLATE_ID != 'main_template')
+        {
+            return;
+        }
+
         /** @var \CMain $APPLICATION */
         global $APPLICATION;
 
