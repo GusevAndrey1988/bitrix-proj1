@@ -1,4 +1,5 @@
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');
+$APPLICATION->SetTitle("");
 $APPLICATION->SetTitle("")?><section class="section about-me" data-section="section1">
 <div class="container">
 	<div class="top-header">
@@ -16,10 +17,10 @@ $APPLICATION->SetTitle("")?><section class="section about-me" data-section="sect
 				<div class="left-text">
 					<h4>Modern Web Design</h4>
 					<p>
-						You are allowed to use this template for commercial or personal websites. You are NOT allowed to redistribute this on template collection website. You can feature this template on your blog post.
+						 You are allowed to use this template for commercial or personal websites. You are NOT allowed to redistribute this on template collection website. You can feature this template on your blog post.
 					</p>
 					<p>
-						All photos in this template are from <a rel="nofollow" href="https://www.pexels.com">Pexels</a> website. Blugoon HTML Template is provided by Tooplate. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
+						 All photos in this template are from <a rel="nofollow" href="https://www.pexels.com">Pexels</a> website. Blugoon HTML Template is provided by Tooplate. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
 					</p>
 					<div class="white-button">
  <a href="#">Read More</a>
@@ -44,10 +45,10 @@ $APPLICATION->SetTitle("")?><section class="section about-me" data-section="sect
 				<div class="right-text">
 					<h4>Best Template for you!</h4>
 					<p>
-						Quisque feugiat nisl at lacus condimentum, eu suscipit odio fringilla. Mauris eu est vitae erat condimentum pellentesque. Fusce vehicula nunc at augue sagittis tristique.
+						 Quisque feugiat nisl at lacus condimentum, eu suscipit odio fringilla. Mauris eu est vitae erat condimentum pellentesque. Fusce vehicula nunc at augue sagittis tristique.
 					</p>
 					<p>
-						Ut imperdiet massa at enim tempus volutpat. Nullam gravida augue quis facilisis commodo. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+						 Ut imperdiet massa at enim tempus volutpat. Nullam gravida augue quis facilisis commodo. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 					</p>
 					<div class="white-button">
  <a href="#">Read More</a>
@@ -71,7 +72,7 @@ $APPLICATION->SetTitle("")?><section class="section about-me" data-section="sect
  <i class="fa fa-area-chart"></i>
 				<h4>Top Performance</h4>
 				<p>
-					Donec sit amet tempor quam. Maecenas nec aliquam leo, sed tincidunt urna.
+					 Donec sit amet tempor quam. Maecenas nec aliquam leo, sed tincidunt urna.
 				</p>
 			</div>
 		</div>
@@ -80,7 +81,7 @@ $APPLICATION->SetTitle("")?><section class="section about-me" data-section="sect
  <i class="fa fa-check-square-o"></i>
 				<h4>Trusted Service</h4>
 				<p>
-					Etiam at porta nulla, et euismod enim. Nullam semper ipsum et dui scelerisque.
+					 Etiam at porta nulla, et euismod enim. Nullam semper ipsum et dui scelerisque.
 				</p>
 			</div>
 		</div>
@@ -89,7 +90,7 @@ $APPLICATION->SetTitle("")?><section class="section about-me" data-section="sect
  <i class="fa fa-question-circle"></i>
 				<h4>Need Help?</h4>
 				<p>
-					Phasellus orci leo, elementum ac risus id, euismod porta lorem. Quisque feugiat.
+					 Phasellus orci leo, elementum ac risus id, euismod porta lorem. Quisque feugiat.
 				</p>
 			</div>
 		</div>
@@ -98,79 +99,63 @@ $APPLICATION->SetTitle("")?><section class="section about-me" data-section="sect
  <i class="fa fa-support"></i>
 				<h4>Quick Support</h4>
 				<p>
-					Mauris eu est vitae erat condimentum pellentesque. Fusce vehicula nunc.
+					 Mauris eu est vitae erat condimentum pellentesque. Fusce vehicula nunc.
 				</p>
 			</div>
 		</div>
 	</div>
 </div>
-</section> 
-<section class="section my-work" data-section="section3">
-	<div class="container">
-		<div class="section-heading">
-			<h2>Gallery</h2>
-			<div class="line-dec">
-			</div>
-				Donec sit amet enim tempor nisl fermentum aliquam. In consectetur sapien eu nisi venenatis lobortis. Sed ullamcorper tristique elit nec facilisis.
+ </section> <section class="section my-work" data-section="section3">
+<div class="container">
+	<div class="section-heading">
+		<h2>Gallery</h2>
+		<div class="line-dec">
 		</div>
-		<?$APPLICATION->IncludeComponent(
-			"site:photo_galery_main_page",
-			".default",
-			Array(
-				"CACHE_TIME" => "36000000",
-				"CACHE_TYPE" => "A",
-				"COMPONENT_TEMPLATE" => ".default",
-				"IBLOCK_ID" => "5"
-			)
-		);?>
+		 Donec sit amet enim tempor nisl fermentum aliquam. In consectetur sapien eu nisi venenatis lobortis. Sed ullamcorper tristique elit nec facilisis.
 	</div>
+	 <?$APPLICATION->IncludeComponent(
+	"site:photo_galery_main_page",
+	".default",
+	Array(
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"COMPONENT_TEMPLATE" => ".default",
+		"IBLOCK_ID" => "5"
+	)
+);?>
+</div>
 </section> 
 <section class="section contact-me" data-section="section4">
 	<div class="container">
 		<div class="section-heading">
 			<h2>Contact</h2>
-			<div class="line-dec"></div>
-				<span>Aenean a consectetur mi, sit amet consequat velit. Mauris vitae nunc viverra, mattis arcu quis, vestibulum eros. </span>
+			<div class="line-dec">
 			</div>
-			<div class="row">
-				<div class="right-content">
-					<div class="container">
-						<form id="contact" action="" method="post">
-							<div class="row">
-								<div class="col-md-6">
-									<fieldset>
-										<input name="name" type="text" class="form-control"
-											id="name" placeholder="Your name..." required="" />
-									</fieldset>
-								</div>
-								<div class="col-md-6">
-									<fieldset>
-										<input name="email" type="text" class="form-control"
-											id="email" placeholder="Your email..." required=""  />
-									</fieldset>
-								</div>
-								<div class="col-md-12">
-									<fieldset>
-										<input name="subject" type="text" class="form-control" 
-											id="subject" placeholder="Subject..." required="" />
-									</fieldset>
-								</div>
-								<div class="col-md-12">
-									<fieldset>
-										<textarea name="message" rows="6" class="form-control"
-											id="message" placeholder="Your message..." required="" ></textarea>
-									</fieldset>
-								</div>
-								<div class="col-md-12">
-									<fieldset>
-										<button type="submit" id="form-submit" class="button">
-											Send Message
-										</button>
-									</fieldset>
-								</div>
-							</div>
-						</form>
-					</div>
+			Aenean a consectetur mi, sit amet consequat velit. Mauris vitae nunc viverra, mattis arcu quis, vestibulum eros.
+		</div>
+		<div class="row">
+			<div class="right-content">
+				<div class="container">
+					<?php $APPLICATION->IncludeComponent(
+						'site:feedback', 
+						'.default', 
+						[
+							'EMAIL_TO' => 'gusevandrey1988@gmail.com',
+							'EVENT_MESSAGE_ID' => [
+								0 => '80',
+							],
+							'OK_TEXT' => 'Спасибо, ваше сообщение принято.',
+							'REQUIRED_FIELDS' => array(
+								0 => 'NAME',
+								1 => 'EMAIL',
+								2 => 'SUBJECT',
+								3 => 'MESSAGE',
+							),
+							'USE_CAPTCHA' => 'Y',
+							'COMPONENT_TEMPLATE' => '.default'
+						],
+						false
+					);?>
 				</div>
 			</div>
 		</div>
