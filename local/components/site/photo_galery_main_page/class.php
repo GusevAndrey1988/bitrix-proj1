@@ -38,6 +38,8 @@ class PhotoGalery extends \CBitrixComponent
 
         if ($this->startResultCache())
         {
+            $this->initTaggedCache();
+
             $categoriesList = $this->getCategoriesList();
             $this->arResult['CATEGORIES'] = $categoriesList;
 
@@ -49,7 +51,7 @@ class PhotoGalery extends \CBitrixComponent
                 $categoryCode = $categoriesList[$photo['IBLOCK_SECTION_ID']]['CODE'] ?? '';
 
                 $photosList[] = [
-                    'NAME' => $photo['ID'],
+                    'NAME' => $photo['NAME'],
                     'DESCRIPTION' => $photo['PREVIEW_TEXT'],
                     'CATEGORY_CODE' => $categoryCode,
                     'SRC' => $photoSrc,
@@ -65,6 +67,14 @@ class PhotoGalery extends \CBitrixComponent
         }
 
         return true;
+    }
+
+    private function initTaggedCache()
+    {
+        $taggedCache = \Bitrix\Main\Application::getInstance()->getTaggedCache();
+        $taggedCache->startTagCache($this->getCachePath());
+        $taggedCache->registerTag('iblock_id_' . $this->arParams['IBLOCK_ID']);
+        $taggedCache->endTagCache();
     }
 
     private function getCategoriesList() : array

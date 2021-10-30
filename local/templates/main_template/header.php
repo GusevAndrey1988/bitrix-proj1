@@ -20,8 +20,8 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
         <link href="<?=\CUtil::GetAdditionalFileURL(SITE_TEMPLATE_PATH . '/assets/css/tooplate-style.css');?>" type="text/css" rel="stylesheet" />
 
-	<script src="<?=SITE_TEMPLATE_PATH?>/vendor/jquery/jquery.min.js"></script>
-	<script src="<?=SITE_TEMPLATE_PATH?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="<?=SITE_TEMPLATE_PATH?>/vendor/jquery/jquery.min.js"></script>
+        <script src="<?=SITE_TEMPLATE_PATH?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <?php
             $templateAsset->addCss(SITE_TEMPLATE_PATH . '/vendor/bootstrap/css/bootstrap.min.css');
